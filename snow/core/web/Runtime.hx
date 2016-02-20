@@ -128,8 +128,8 @@ class Runtime implements snow.core.Runtime {
         //the window.onresize event handler
     inline function onresize_handler(_) {
 
-        window.style.width = '${js.Browser.window.innerWidth}px';
-        window.style.height = '${js.Browser.window.innerHeight}px';
+        window.style.width = '${js.Browser.document.documentElement.clientWidth}px';
+        window.style.height = '${js.Browser.document.documentElement.clientHeight}px';
     
     } //onresize_handler
 
@@ -148,12 +148,15 @@ class Runtime implements snow.core.Runtime {
             p_body_margin   = js.Browser.document.body.style.margin;
             p_body_overflow = js.Browser.document.body.style.overflow;
 
+			var window_width : Int = js.Browser.document.documentElement.clientWidth;
+			var window_height : Int = js.Browser.document.documentElement.clientHeight;
+
             window.style.margin = '0';
             window.style.padding = '0';
-            window.style.width = js.Browser.window.innerWidth + 'px';
-            window.style.height = js.Browser.window.innerHeight + 'px';
-            window.width = js.Browser.window.innerWidth;
-            window.height = js.Browser.window.innerHeight;
+            window.style.width = window_width + 'px';
+            window.style.height = window_height + 'px';
+            window.width = window_width;
+            window.height = window_height;
 
                 //stop the browser page from having scrollbars etc
             js.Browser.document.body.style.margin = '0';
@@ -1156,3 +1159,4 @@ private class DOMKeys {
 } //DOMKeys
 
 #end
+
