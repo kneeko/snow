@@ -441,7 +441,7 @@ class Input {
 
         /** update gamepad pressed/released/down/axis states */
     function _update_gamepadstate() {
-
+#if 0
         for(_gamepad_pressed in gamepad_button_pressed){
             for(_button in _gamepad_pressed.keys()) {
 
@@ -465,7 +465,7 @@ class Input {
 
             } //each _gamepad_released
         } //each gamepad_button_released
-
+#end
     } //_update_gamepadstate
 
         /** update key pressed/released/down states */
