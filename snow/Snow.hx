@@ -63,6 +63,8 @@ class Snow {
             /** Set if shut dow has completed  */
         public var has_shutdown : Bool = false;
 
+		public var has_focus : Bool = true;
+
     //extensions
 
         var extensions: Array<snow.core.Extension>;
@@ -193,6 +195,15 @@ class Snow {
             
             win_event.set(_type, _timestamp, _window_id, _x, _y);
             sys_event.set(se_window, win_event, null);
+
+			if (_type == we_minimized)
+			{
+				has_focus = false;
+			}
+			else if (_type == we_restored)
+			{
+				has_focus = true;
+			}
             
             onevent(sys_event);
 

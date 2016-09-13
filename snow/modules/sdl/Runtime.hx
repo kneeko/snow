@@ -207,7 +207,7 @@ class Runtime extends snow.core.native.Runtime {
 
         app.dispatch_event(se_tick);
 
-        if(!app.has_shutdown) {
+        if(!app.has_shutdown && app.has_focus) {
             window_swap();
         }
 
