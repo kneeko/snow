@@ -76,13 +76,19 @@
       },
     },
 
-    "mac || windows || linux || android || ios" : {
+    "mac || windows || linux" : {
+      build: {
+        defines: ['snow_use_glew']
+      }
+    },
+
+    "mac || windows || linux || android || ios || tvos" : {
       build: {
         defines : ['snow_native']
       }
     },
 
-    "android || ios" : {
+    "android || ios || tvos" : {
       build: {
         defines: ['linc_opengl_GLES']
       }

@@ -157,6 +157,18 @@ class Runtime implements snow.core.Runtime {
             window.style.height = window_height + 'px';
             window.width = window_width;
             window.height = window_height;
+/*
+                //css device pixels
+            window.style.margin = '0';
+            window.style.padding = '0';
+            window.style.width = js.Browser.window.innerWidth + 'px';
+            window.style.height = js.Browser.window.innerHeight + 'px';
+
+                //renderable pixels, we request latest dpr, since this can happen at any time
+            window_dpr = window_device_pixel_ratio();
+            window.width = Math.floor(js.Browser.window.innerWidth * window_dpr);
+            window.height = Math.floor(js.Browser.window.innerHeight * window_dpr);
+*/
 
                 //stop the browser page from having scrollbars etc
             js.Browser.document.body.style.margin = '0';
@@ -580,7 +592,7 @@ class Runtime implements snow.core.Runtime {
 
             //These are in css device pixels
         window_w = config.width;
-        window_h = config.width;
+        window_h = config.height;
         window.style.width = config.width+'px';
         window.style.height = config.height+'px';
             //This is typically required for our WebGL blending
