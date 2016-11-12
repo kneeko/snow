@@ -182,7 +182,9 @@ class IO {
             string_slots = new Map();
         }
 
-        var _string_map = string_slots.get(_slot);
+		// TODO: need a way to invalidate this
+        //var _string_map = string_slots.get(_slot);
+		var _string_map = null;
 
         if(_string_map == null) {
 
